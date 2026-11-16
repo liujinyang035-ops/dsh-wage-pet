@@ -1,0 +1,61 @@
+{
+  "name": "dsh-wage-pet",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "桌宠式工资计程表：按月薪/时薪、单休双休与上下班时间，实时累计今日进账。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin",
+    "ui",
+    "desktop-pet",
+    "salary",
+    "wage",
+    "earnings",
+    "工资",
+    "桌宠"
+  ],
+  "license": "MIT",
+  "author": "liujinyang035",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liujinyang035-ops/dsh-wage-pet.git"
+  },
+  "homepage": "https://github.com/liujinyang035-ops/dsh-wage-pet#readme",
+  "bugs": {
+    "url": "https://github.com/liujinyang035-ops/dsh-wage-pet/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "icon.png",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.1 <0.3.0-0 || >=0.2.1-rc.1 <0.3.0-0 || >=0.2.2-rc.1 <0.3.0-0 || >=0.2.3-rc.1 <0.3.0-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  }
+}

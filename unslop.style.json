@@ -1,0 +1,16 @@
+{
+  "radius": { "scale": [1.5, 7, 8, 16], "note": "1.5 用于方孔，7 用于输入，8 用于按钮与齿轮，16 用于悬浮卡片；胶囊用 999。" },
+  "shadow": {
+    "policy": "object-lift",
+    "note": "只有悬浮卡片与折叠胶囊带阴影，读作「浮在桌面上的物件」；内部无二级阴影堆叠。"
+  },
+  "gradients": { "allow": ["brass-coin", "progress-fill"], "note": "渐变只出现在铜钱本体与进度条填充，两者都是被画的实物或度量。" },
+  "motion": { "reducedMotion": "respected", "note": "眨眼与 z 浮动在 prefers-reduced-motion 下停用；进度条过渡同时停用。" },
+  "icons": { "note": "无图标字体、无 emoji 装饰；齿轮按钮用单字符字形，铜钱用 CSS 绘制。" },
+  "rules": {
+    "L3": "off"
+  },
+  "ruleNotes": {
+    "L3": "off — 该规则把铜钱 radial-gradient 的色标（50%/34%/24%/56%）读成了统计条数值，不是真发现。设置页的四项折算（时薪/日薪/每秒/月工时）是真算出来的数，保留。"
+  }
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Wage pet">
+  <defs>
+    <radialGradient id="c" cx="34%" cy="26%" r="78%">
+      <stop offset="0" stop-color="#f4d089"/>
+      <stop offset="0.55" stop-color="#cb9433"/>
+      <stop offset="1" stop-color="#8a5d18"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="23" fill="url(#c)"/>
+  <circle cx="32" cy="34" r="20.5" fill="none" stroke="#6f4a10" stroke-opacity="0.45" stroke-width="1.4"/>
+  <rect x="26" y="28" width="12" height="12" rx="1.6" fill="#171a20"/>
+  <rect x="26" y="28" width="12" height="12" rx="1.6" fill="none" stroke="#f6dfae" stroke-opacity="0.5" stroke-width="1"/>
+  <rect x="25" y="18.5" width="3.4" height="5.6" rx="1.7" fill="#3d2907"/>
+  <rect x="35.6" y="18.5" width="3.4" height="5.6" rx="1.7" fill="#3d2907"/>
+</svg>

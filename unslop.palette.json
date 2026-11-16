@@ -1,0 +1,21 @@
+{
+  "//": "工资桌宠 — 方向来自主题本身：孔方兄。铜钱是黄铜，账本是纸，界面是宿主表面。",
+  "name": "dsh-wage-pet",
+  "colors": [
+    { "value": "#c8912f", "role": "signal — 铜钱主体，进账色", "hue": 42 },
+    { "value": "#e8b84b", "role": "signal — 进度条亮端", "hue": 44 },
+    { "value": "#f6d489", "role": "signal — 铜钱高光", "hue": 42 },
+    { "value": "#7f5516", "role": "signal — 铜钱暗部", "hue": 38 },
+    { "value": "#3b2708", "role": "ink — 铜钱上的眼", "hue": 36 },
+    { "value": "rgba(60,34,0,.5)", "role": "shade — 铜钱底部内阴影" },
+    { "value": "#171a20", "role": "ink — 方孔（挖空处，非表面色）" },
+    { "value": "#1b1f27", "role": "fallback — --dsw-alias-bg-overlay 缺失时的暗色底" },
+    { "value": "#e8e8ea", "role": "fallback — --dsw-alias-label-primary" },
+    { "value": "#a0a0a8", "role": "fallback — --dsw-alias-label-secondary" },
+    { "value": "#c8c8d0", "role": "fallback — 角分位次要文字" },
+    { "value": "#4caf7d", "role": "fallback — --dsw-alias-state-success-primary" },
+    { "value": "#6a9cf0", "role": "fallback — --dsw-alias-brand-primary" }
+  ],
+  "grounds": "宿主表面：--dsw-alias-bg-overlay / bg-layer-1 / bg-layer-2 / label-primary / label-secondary / border-l1 / brand-primary / state-success-primary。表中 fallback 仅在该令牌缺失时生效。",
+  "note": "表面、文字、边框一律走宿主令牌，暗色亮色自动跟随；只有铜钱本体用固有色，因为它是画出来的物件。"
+}
