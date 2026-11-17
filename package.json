@@ -1,6 +1,6 @@
 {
   "name": "dsh-wage-pet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "桌宠式工资计程表：按月薪/时薪、单休双休与上下班时间，实时累计今日进账。",
   "keywords": [
