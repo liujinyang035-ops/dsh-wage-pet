@@ -135,6 +135,24 @@ window.__ModuleLoader__.load({
       }
     }
 
+    /**
+     * A saved position can land outside the viewport after the window shrinks or
+     * the layout changes — the pet then renders where nobody can see it. Pull it
+     * back inside, and drop the record entirely when it is unusable.
+     */
+    function fitPosition(pos) {
+      if (!pos || !Number.isFinite(pos.x) || !Number.isFinite(pos.y)) return null;
+      const w = window.innerWidth || 0;
+      const h = window.innerHeight || 0;
+      if (w <= 0 || h <= 0) return null;
+      const maxX = Math.max(0, w - 280);
+      const maxY = Math.max(0, h - 200);
+      const x = Math.min(Math.max(0, pos.x), maxX);
+      const y = Math.min(Math.max(0, pos.y), maxY);
+      if (x === pos.x && y === pos.y) return pos;
+      return { x, y };
+    }
+
     function loadCfg() {
       const stored = readJSON(CFG_KEY, null);
       return Object.assign({}, DEFAULTS, stored || {});
@@ -661,7 +679,7 @@ window.__ModuleLoader__.load({
       );
 
       const [cfg, setCfg] = useState(loadCfg);
-      const [pos, setPos] = useState(() => readJSON(POS_KEY, null));
+      const [pos, setPos] = useState(() => fitPosition(readJSON(POS_KEY, null)));
       const [folded, setFolded] = useState(false);
       const [view, setView] = useState('main');
       const [now, setNow] = useState(() => Date.now());
@@ -687,6 +705,20 @@ window.__ModuleLoader__.load({
         };
         frame = window.requestAnimationFrame(loop);
         return () => window.cancelAnimationFrame(frame);
+      }, []);
+
+      /* A shrunken window would otherwise leave the pet parked outside it. */
+      useEffect(() => {
+        const onResize = () => {
+          const fitted = fitPosition(posRef.current);
+          if (fitted && posRef.current && (fitted.x !== posRef.current.x || fitted.y !== posRef.current.y)) {
+            posRef.current = fitted;
+            setPos(fitted);
+            writeJSON(POS_KEY, fitted);
+          }
+        };
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
       }, []);
 
       const moveTo = (next) => {
